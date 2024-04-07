@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Offer } from '../../types/offer';
 import CityCard from '../city-card/city-card';
 
