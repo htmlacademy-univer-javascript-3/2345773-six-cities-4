@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { CardType } from '../../const';
 import { Offer } from '../../types/offer';
 import CityCard from '../city-card/city-card';
 
@@ -19,7 +19,7 @@ function FavouritesCityBlock({ city, places }: FavouritesCityBlockProps) {
       </div>
       <div className="favorites__places">
         {places.map((place) => (
-          <CityCard key={place.id} cardInfo={place} />
+          <CityCard key={place.id} cardInfo={place} typeClassName={CardType.favourites}/>
         ))}
       </div>
     </li>
