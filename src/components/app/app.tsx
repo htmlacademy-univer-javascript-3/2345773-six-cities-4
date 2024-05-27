@@ -9,6 +9,7 @@ import { Review } from '../../types/review';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setOffersList } from '../../store/action';
 import { Offer } from '../../types/offer';
+import { useEffect } from 'react';
 
 type AppComponentProps = {
   reviews: Review[];
@@ -17,12 +18,12 @@ type AppComponentProps = {
 function App({ reviews }: AppComponentProps): JSX.Element | null {
   const offers: Offer[] = useAppSelector((state) => state.offersList);
   const dispatch = useAppDispatch();
-  dispatch(setOffersList());
+  useEffect(() => {
+    dispatch(setOffersList());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const favourites = offers.filter((o) => o.isFavorite);
-  if(offers.length === 0){
-    return null;
-  }
   return (
     <BrowserRouter>
       <Routes>
@@ -37,10 +38,7 @@ function App({ reviews }: AppComponentProps): JSX.Element | null {
           }
         />
         <Route path="/login" element={<LoginScreen />} />
-        <Route
-          path="/offer/:id"
-          element={<OfferScreen reviews={reviews} offers={offers} />}
-        />
+        <Route path="/offer/:id" element={<OfferScreen reviews={reviews} />} />
       </Routes>
     </BrowserRouter>
   );
