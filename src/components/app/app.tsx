@@ -20,6 +20,7 @@ function App({ reviews }: AppComponentProps): JSX.Element | null {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(setOffersList());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const favourites = offers.filter((o) => o.isFavorite);
