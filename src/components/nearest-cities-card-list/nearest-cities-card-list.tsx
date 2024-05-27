@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import CityCard from '../offer-card/offer-card.tsx';
 import { OffersCardListProps } from '../../types/card-list';
 import { CardType } from '../../const';
