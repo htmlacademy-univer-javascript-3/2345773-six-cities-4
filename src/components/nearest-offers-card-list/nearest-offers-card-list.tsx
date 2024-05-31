@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import CityCard from '../offer-card/offer-card.tsx';
-import { OffersCardListProps } from '../../types/card-list';
-import { CardType } from '../../const';
+import { OffersCardListProps } from '../../types/card-list.ts';
+import { CardType } from '../../const.ts';
 // import { useState } from 'react';
 
 
-function NearestCitiesCardList({ offers }: OffersCardListProps) {
+function NearestOffersCardList({ offers }: OffersCardListProps) {
   return (
     <div className="near-places__list places__list">
       {offers.map((offer) => (
@@ -19,4 +19,4 @@ function NearestCitiesCardList({ offers }: OffersCardListProps) {
   );
 }
 
-export default NearestCitiesCardList;
+export default NearestOffersCardList;
