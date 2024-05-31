@@ -38,29 +38,28 @@ function CommentForm({ id }: CommentFromProps) {
 
   };
 
-}
 
-const isValid = () =>
-  formState.comment.trim().length > 49 && formState.rating !== '';
+  const isValid = () =>
+    formState.comment.trim().length > 49 && formState.rating !== '';
 
-const handleFromSubmit = (evt: FormEvent<HTMLFormElement>) => {
-  evt.preventDefault();
-  dispatch(
-    sendCommentAction({
-      id,
-      comment: {
-        comment: formState.comment,
-        rating: Number(formState.rating),
-      },
-    })
-  );
+  const handleFromSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    dispatch(
+      sendCommentAction({
+        id,
+        comment: {
+          comment: formState.comment,
+          rating: Number(formState.rating),
+        },
+      })
+    );
 
-  setFormState((prevState) => ({
-    ...prevState,
-    rating: '',
-    comment: '',
-  }));
-};
+    setFormState((prevState) => ({
+      ...prevState,
+      rating: '',
+      comment: '',
+    }));
+  };
   return (
     <form className="reviews__form form" onSubmit={handleFromSubmit}>
       <label className="reviews__label form__label" htmlFor="review">
@@ -187,6 +186,6 @@ const handleFromSubmit = (evt: FormEvent<HTMLFormElement>) => {
       </div>
     </form>
   );
-};
+}
 
 export default CommentForm;
