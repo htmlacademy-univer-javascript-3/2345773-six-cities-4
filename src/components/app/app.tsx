@@ -6,17 +6,12 @@ import OfferScreen from '../../pages/offer-screen/offer-screen';
 import ErrorScreen from '../../pages/error-screen/error-screen';
 import PrivateRoute from '../private-route/private-route';
 import LoadingScreen from '../../pages/loading-screen/loading-screen';
-import { Review } from '../../types/review';
 import { useAppSelector } from '../../hooks';
 import { AuthorizationStatus } from '../../const';
 
 
-type AppComponentProps = {
-  reviews: Review[];
-};
-
-function App({ reviews }: AppComponentProps): JSX.Element | null {
-  const authorizationStatus = useAppSelector(
+function App(): JSX.Element | null {
+  const authorizationStatus: AuthorizationStatus = useAppSelector(
     (state) => state.authorizationStatus
   );
   const isOffersDataLoading = useAppSelector(
@@ -42,7 +37,7 @@ function App({ reviews }: AppComponentProps): JSX.Element | null {
           }
         />
         <Route path="/login" element={<LoginScreen />} />
-        <Route path="/offer/:id" element={<OfferScreen reviews={reviews} />} />
+        <Route path="/offer/:id" element={<OfferScreen />} />
       </Routes>
     </BrowserRouter>
   );
