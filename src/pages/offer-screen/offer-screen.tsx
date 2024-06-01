@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import NearbyOffers from '../../components/nearby-offers/nearby-offers';
 import {
   getIsNearbyOffersLoading,
@@ -34,18 +35,16 @@ function OfferPage(): JSX.Element | null {
   );
   const id = String(useParams().id);
 
-
   useOfferData(id);
   usePageInfo(offer);
-
 
   if (isAllLoading) {
     return <Loader />;
   }
+
   if (!offer) {
     return <ErrorScreen />;
   }
-
 
   return (
     <main className="page__main page__main--offer">

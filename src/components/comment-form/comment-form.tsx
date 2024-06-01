@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
 
-
 import {
   getIsReviewsStatusSubmitting,
   getReviewsHasError,
@@ -27,13 +26,10 @@ const DEFAULT_RATING = -1;
 
 type CommentFormProps = {
   offerId: string;
-}
+};
 
 function CommentForm({ offerId }: CommentFormProps): JSX.Element {
-
-
   const dispatch = useAppDispatch();
-
 
   const isLoading = useAppSelector(getIsReviewsStatusSubmitting);
   const reviewsStatus = useAppSelector(getReviewsHasError);
@@ -42,9 +38,7 @@ function CommentForm({ offerId }: CommentFormProps): JSX.Element {
   const [rating, setRating] = useState(DEFAULT_RATING);
   const [invalid, setInvalid] = useState(true);
 
-
   const disabledSubmitButton = invalid || isLoading;
-
 
   const validateForm = (commentLength: number, newRating: number) => {
     const isInvalid = !(
@@ -60,6 +54,7 @@ function CommentForm({ offerId }: CommentFormProps): JSX.Element {
     setRating(DEFAULT_RATING);
     setInvalid(true);
   };
+
   useEffect(() => {
     if (reviewsStatus === Status.Success) {
       resetForm();
@@ -86,17 +81,15 @@ function CommentForm({ offerId }: CommentFormProps): JSX.Element {
   const starsFragment = Object.entries(ratingTypes)
     .map(([title, ratingStar]) => (
       <Fragment key={title}>
-
         <input
           className="form__rating-input visually-hidden"
           name="rating"
           defaultValue={ratingStar}
           id={`${ratingStar}-stars`}
           type="radio"
-          checked={formState.rating === '1'}
           checked={ratingStar === rating}
           disabled={isLoading}
-          onChange={() => handleClickStar(ratingStar)} checked={formState.rating === '1'}
+          onChange={() => handleClickStar(ratingStar)}
         />
         <label
           htmlFor={`${ratingStar}-stars`}
@@ -144,7 +137,6 @@ function CommentForm({ offerId }: CommentFormProps): JSX.Element {
           className="reviews__submit form__submit button"
           type="submit"
           disabled={disabledSubmitButton}
-
         >
           Submit
         </button>
