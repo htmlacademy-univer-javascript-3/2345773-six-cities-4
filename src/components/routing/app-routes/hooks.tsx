@@ -30,7 +30,7 @@ function useAppRoutes() {
     },
     {
       path: Routes.Favorites,
-      Element: (
+      element: (
         <PrivateRouteRoute userAuthorizationStatus={userAuthorizationStatus}>
           <FavoritesScreen />
         </PrivateRouteRoute>
@@ -39,7 +39,7 @@ function useAppRoutes() {
     },
     {
       path: Routes.Offer,
-      Element: <OfferScreen />,
+      element: <OfferScreen />,
       layout: <PageLayout isFooterShow />,
     },
     {

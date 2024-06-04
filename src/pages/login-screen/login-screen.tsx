@@ -6,7 +6,7 @@ import { processErrorHandle } from '../../services/process-error-handle';
 
 const REGEX_PASSWORD = /^(?=.*[a-zA-Z])(?=.*\d)[^\s]+$/;
 const PASSWORD_ERROR_MESSAGE =
-  'The password must consist of at least one English letter and one symbol without spaces.';
+  'В пароле должны быть по крайней мере одна английская буква и одна цифра';
 
 const isPasswordValid = (password: string) => REGEX_PASSWORD.test(password);
 
@@ -28,10 +28,11 @@ function LoginScreen(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isSubmittingLogin = useAppSelector(getIsSubmittingLogin);
+
   const loginRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
-  const city = getRandomElementFromArray(cities);
 
+  const city = getRandomElementFromArray(cities);
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -47,6 +48,7 @@ function LoginScreen(): JSX.Element {
       processErrorHandle(PASSWORD_ERROR_MESSAGE);
       return;
     }
+
     dispatch(
       loginAction({
         login: login.trim(),
@@ -54,6 +56,7 @@ function LoginScreen(): JSX.Element {
       })
     );
   };
+
   return (
     <main className="page__main page__main--login">
       <div className="page__login-container container">

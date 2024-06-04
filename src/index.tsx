@@ -8,7 +8,6 @@ import HistoryRouter from './components/routing/history-route/history-route';
 import browserHistory from './browser-history';
 import { HelmetProvider } from 'react-helmet-async';
 
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

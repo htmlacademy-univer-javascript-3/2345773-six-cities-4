@@ -4,7 +4,6 @@ import Loader from '../../components/loader/loader';
 import EmptyFavorites from '../../components/empty-favourites/empty-favourites';
 import Favourites from '../../components/favourites/favourites';
 
-
 function FavoutitesScreen(): JSX.Element {
   const isFavouritesLoading = useAppSelector(getIsFavoritesLoading);
   const favorites = useAppSelector(getFavorites);

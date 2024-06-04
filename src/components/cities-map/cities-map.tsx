@@ -40,6 +40,7 @@ function CitiesMap(props: CitiesMapProps): JSX.Element {
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
+
       if (currentOffer) {
         const marker = new Marker({
           lat: currentOffer.location.latitude,

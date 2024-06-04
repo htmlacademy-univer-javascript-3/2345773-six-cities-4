@@ -1,5 +1,5 @@
-import { Offer } from './types/offer';
 import { SortingType } from './const';
+import { Offer } from './types/offer';
 
 export const capitalizeFirstLetter = (word: string) => {
   if (word.length === 0) {

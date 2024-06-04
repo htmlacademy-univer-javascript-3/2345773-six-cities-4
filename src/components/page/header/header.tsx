@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Routes } from '../../../const';
 import { memo } from 'react';
 
-
 type HeaderProps = {
   isUserNavigation: boolean | undefined;
   isActiveLogo: boolean | undefined;
@@ -34,7 +33,6 @@ function Header(props: HeaderProps): JSX.Element | null {
             </Link>
           </div>
           {isUserNavigation && <UserNavigation />}
-
         </div>
       </div>
     </header>

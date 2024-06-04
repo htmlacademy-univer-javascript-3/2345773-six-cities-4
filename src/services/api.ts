@@ -4,7 +4,8 @@ import axios, {
   AxiosError,
   InternalAxiosRequestConfig,
 } from 'axios';
-import { getToken } from './token';import { StatusCodes } from 'http-status-codes';
+import { getToken } from './token';
+import { StatusCodes } from 'http-status-codes';
 import { processErrorHandle } from './process-error-handle';
 
 type DetailMessageType = {

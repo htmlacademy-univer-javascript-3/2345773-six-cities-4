@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Link } from 'react-router-dom';
 import { capitalizeFirstLetter, formatRating } from '../../utils';
 import { CardType } from '../offers-list/offers-list';
 import { Offer } from '../../types/offer';
 import AddToFavouritesButton from '../add-to-favourites-button/add-to-favourites-button';
-
 
 type PlaceCardProps = Offer & {
   cardType: CardType;
@@ -25,6 +22,7 @@ function CommonPlaceCard(props: PlaceCardProps): JSX.Element {
   const pathCard = `/offer/${id}`;
   const ratingPercentage = formatRating(rest.rating);
   const capitalizedType = capitalizeFirstLetter(rest.type);
+
   return (
     <article
       className={`${cardType}__card place-card`}
