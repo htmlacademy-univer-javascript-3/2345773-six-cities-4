@@ -1,10 +1,8 @@
-
 import cn from 'classnames';
 import CitiesList from '../../components/cities-list/cities-list';
 import PlacesToVisit from '../../components/places-to-visit/places-to-visit';
 import { getOffers, getSelectedCity, useAppSelector } from '../../store';
 import { useMemo } from 'react';
-
 
 function MainScreen(): JSX.Element {
   const selectedCity = useAppSelector(getSelectedCity);
@@ -13,7 +11,6 @@ function MainScreen(): JSX.Element {
     () => offers.filter((offer) => offer.city.name === selectedCity),
     [offers, selectedCity]
   );
-
 
   return (
     <main

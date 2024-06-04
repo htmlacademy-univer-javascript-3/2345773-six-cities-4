@@ -1,6 +1,5 @@
 import { CityName } from '../const';
 
-
 export type Location = {
   latitude: number;
   longitude: number;
@@ -32,10 +31,10 @@ export type Offer = {
 };
 
 export type ExtendedOffer = Omit<Offer, 'previewImage'> & {
-    description: string;
-    bedrooms: number;
-    goods: string[];
-    host: Host;
-    maxAdults: number;
-    images: string[];
-  };
+  description: string;
+  bedrooms: number;
+  goods: string[];
+  host: Host;
+  maxAdults: number;
+  images: string[];
+};

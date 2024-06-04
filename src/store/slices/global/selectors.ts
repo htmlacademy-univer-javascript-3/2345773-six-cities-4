@@ -9,3 +9,4 @@ export const getSelectedCity = (state: State): CityName =>
 
 export const getError = (state: State): string | null =>
   state[NameSpace.App].error;
+

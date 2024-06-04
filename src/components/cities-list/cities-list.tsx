@@ -3,13 +3,13 @@ import { CityName } from '../../const';
 import { changeCity, useAppDispatch } from '../../store';
 import { memo } from 'react';
 
-
 type CitiesListProps = {
   selectedCity: CityName;
 };
 
 function CitiesList({ selectedCity }: CitiesListProps): JSX.Element {
   const dispatch = useAppDispatch();
+
   const cities: CityName[] = [
     CityName.Paris,
     CityName.Cologne,
@@ -26,6 +26,7 @@ function CitiesList({ selectedCity }: CitiesListProps): JSX.Element {
     evt.preventDefault();
     dispatch(changeCity(city));
   };
+
   return (
     <div className="tabs">
       <section className="locations container">

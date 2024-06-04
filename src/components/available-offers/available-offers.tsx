@@ -4,7 +4,6 @@ import { Offer } from '../../types/offer';
 import { getSelectedCity, useAppSelector } from '../../store';
 import { memo } from 'react';
 
-
 type AvailableOffersProps = {
   offers: Offer[];
   handleCardMouseEnter: (id: Offer['id']) => void;
