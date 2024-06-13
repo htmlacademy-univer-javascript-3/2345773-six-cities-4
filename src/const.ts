@@ -1,73 +1,55 @@
-export const URL_MARKER_DEFAULT =
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
+import { City } from './types/types';
 
-export const URL_MARKER_CURRENT =
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
-
-export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN',
-}
-
-export enum Routes {
+export const enum AppRoute {
   Main = '/',
   Login = '/login',
   Favorites = '/favorites',
   Offer = '/offer/:id',
-  NotFound = '/*',
+  Error = '/error'
 }
 
-export enum NameSpace {
-  App = 'APP',
-  User = 'USER',
-  MultipleOffersData = 'MULTIPLE_OFFERS_DATA',
-  SingleOfferData = 'SINGLE_OFFER_DATA',
-  FavouritesData = 'FAVOURITES_DATA',
-  NearbyOffersData = 'NEARBY_OFFERS_DATA',
-  ReviewsData = 'REVIEWS_DATA',
+export const enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN'
 }
 
-export enum Status {
-  Idle = 'idle',
-  Loading = 'loading',
-  Success = 'success',
-  Error = 'error',
-}
+export const monthMap: { [key: number]: string } = {
+  1: 'January',
+  2: 'February',
+  3: 'March',
+  4: 'April',
+  5: 'May',
+  6: 'June',
+  7: 'July',
+  8: 'August',
+  9: 'September',
+  10: 'October',
+  11: 'November',
+  12: 'December'
+};
 
-export enum TitlePage {
-  Main = 'Home',
-  Favorites = 'Favorites',
-  Login = 'Login',
-}
+export const ACTIVE_CARD = null;
 
-export enum DescriptionPage {
-  Main = 'Description main',
-  Favorites = 'Description favorites',
-  Login = 'Description login',
-}
+export const REVIEW_FORM = {
+  rating: 0,
+  review: '',
+};
 
-export enum FavouriteStatus {
-  Add = 1,
-  Remove = 0,
-}
+export const URL_MARKER_DEFAULT =
+  '/img/pin.svg';
 
-export enum CardType {
-  favourites = 'favorites__card',
-  nearest = 'near-places__card',
-  regular = 'cities__card',
-}
+export const URL_MARKER_CURRENT =
+  '/img/pin-active.svg';
 
-export const TIMEOUT_SHOW_ERROR = 2000;
-
-export enum CityName {
-  Paris = 'Paris',
-  Cologne = 'Cologne',
-  Brussels = 'Brussels',
-  Amsterdam = 'Amsterdam',
-  Hamburg = 'Hamburg',
-  Dusseldorf = 'Dusseldorf',
-}
+export const CITIES: City[] = [
+  { name: 'Paris', location: {latitude: 48.8566, longitude: 2.3522, zoom: 12 }},
+  { name: 'Cologne', location: {latitude: 50.9375, longitude: 6.9603, zoom: 12 }},
+  { name: 'Brussels', location: {latitude: 50.8503, longitude: 4.3517, zoom: 12 }},
+  { name: 'Amsterdam', location: {latitude: 52.3676, longitude: 4.9041, zoom: 12 }},
+  { name: 'Hamburg', location: {latitude: 53.5511, longitude: 9.9937, zoom: 12 }},
+  { name: 'Dusseldorf', location: {latitude: 51.2277, longitude: 6.7735, zoom: 12 }},
+];
 
 export enum APIRoute {
   Offers = '/offers',
@@ -77,28 +59,3 @@ export enum APIRoute {
   Nearby = '/nearby',
   Favorite = '/favorite',
 }
-
-export enum SortingType {
-  Popular = 'Popular',
-  LowToHigh = 'Price: low to high',
-  HighToLow = 'Price: high to low',
-  TopRated = 'Top rated first',
-}
-
-export const routeNameToPageInfoMap: Record<
-  string,
-  { title: string; description: string }
-> = {
-  [Routes.Main]: {
-    title: TitlePage.Main,
-    description: DescriptionPage.Main,
-  },
-  [Routes.Favorites]: {
-    title: TitlePage.Favorites,
-    description: DescriptionPage.Favorites,
-  },
-  [Routes.Login]: {
-    title: TitlePage.Login,
-    description: DescriptionPage.Login,
-  },
-};

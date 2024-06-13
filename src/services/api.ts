@@ -1,12 +1,6 @@
-import axios, {
-  AxiosInstance,
-  AxiosResponse,
-  AxiosError,
-  InternalAxiosRequestConfig,
-} from 'axios';
-import { getToken } from './token';
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import { StatusCodes } from 'http-status-codes';
-import { processErrorHandle } from './process-error-handle';
+import { toast } from 'react-toastify';
 
 type DetailMessageType = {
   type: string;
@@ -31,28 +25,23 @@ export const createAPI = (): AxiosInstance => {
     timeout: REQUEST_TIMEOUT,
   });
 
-  api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-    const token = getToken();
-
-    if (token && config.headers) {
-      config.headers['x-token'] = token;
-    }
-
-    return config;
-  });
-
   api.interceptors.response.use(
     (response) => response,
     (error: AxiosError<DetailMessageType>) => {
       if (error.response && shouldDisplayError(error.response)) {
         const detailMessage = error.response.data;
 
-        processErrorHandle(detailMessage.message);
+        toast.warn(detailMessage.message);
       }
 
-      throw error;
+      return Promise.reject(error); // возвращаем ошибку, чтобы она была обработана в thunk
     }
   );
+
+  const token = localStorage.getItem('six-cities-token');
+  if (token) {
+    api.defaults.headers.common['X-Token'] = token;
+  }
 
   return api;
 };
