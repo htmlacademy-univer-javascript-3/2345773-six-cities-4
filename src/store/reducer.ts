@@ -1,20 +1,22 @@
-import { NameSpace } from '../const';
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import cityReducer from './city-reducer';
+import offersReducer from './offers-reducer';
+import currentOfferReducer from './current-offer-reducer';
+import reviewsReducer from './reviews-reducer';
+import nearbyOffersReducer from './nearby-offers-reducer';
+import authReducer from './auth-reducer';
+import userDataReducer from './user-data-reducer';
+import favoritesReducer from './favorites-reducer';
 
-import { userData } from './slices/user';
-import { multipleOffersData } from './slices/multiple-offers';
-import { singleOfferData } from './slices/offer';
-import { nearbyOffersData } from './slices/nearby-offers';
-import { reviewsData } from './slices/reviews';
-import { favouritesData } from './slices/favourites';
-import { globalState } from './slices/global';
-
-export const reducer = combineReducers({
-  [NameSpace.App]: globalState.reducer,
-  [NameSpace.User]: userData.reducer,
-  [NameSpace.MultipleOffersData]: multipleOffersData.reducer,
-  [NameSpace.SingleOfferData]: singleOfferData.reducer,
-  [NameSpace.FavouritesData]: favouritesData.reducer,
-  [NameSpace.NearbyOffersData]: nearbyOffersData.reducer,
-  [NameSpace.ReviewsData]: reviewsData.reducer,
+const rootReducer = combineReducers({
+  city: cityReducer,
+  offers: offersReducer,
+  currentOffer: currentOfferReducer,
+  reviews: reviewsReducer,
+  nearbyOffers: nearbyOffersReducer,
+  authorizationStatus: authReducer,
+  userData: userDataReducer,
+  favorites: favoritesReducer,
 });
+
+export default rootReducer;
